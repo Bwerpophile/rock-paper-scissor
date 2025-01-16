@@ -24,6 +24,9 @@ function getComputerChoice(i) {
 // }
 
 const container = document.createElement('div');
+const result = document.createElement('p');
+const result2 = document.createElement('p');
+const result3 = document.createElement('p');
 const body = document.querySelector('body');
 
 
@@ -49,13 +52,17 @@ rockBtn.textContent = 'Rock';
 rockBtn.addEventListener('click', () =>  {
     const humanPaper = "rock"; 
     const computerChoice = getComputerChoice();
-    playRound(humanPaper, computerChoice);       
+    playRound(humanPaper, computerChoice);
+
 });
 
 
 container.appendChild(scissorBtn);
 container.appendChild(papperBtn);
 container.appendChild(rockBtn);
+container.appendChild(result);
+container.appendChild(result2);
+container.appendChild(result3);
 body.appendChild(container);
 
 function playRound(humanChoice, computerChoice){
@@ -63,34 +70,34 @@ function playRound(humanChoice, computerChoice){
     
         if (humanChoice == "rock" && computerChoice == "scissor") {
             humanScore = humanScore + 1;
-            console.log("Choix ordi" + " " + computerChoice + " " +"Choix humain" + " " +humanChoice)
-            console.log("Computer : " + computerScore + " | " + "Human : " + humanScore)
-            return console.log("Rock beat scissor") ;
+            result.innerText = ("Choix ordi" + " " + computerChoice + " " +"Choix humain" + " " +humanChoice)
+            result2.innerText = ("Computer : " + computerScore + " | " + "Human : " + humanScore)
+            return result3.innerText = ("Rock beat scissor") ;
         }
         if (humanChoice == "paper" && computerChoice == "rock") {
             humanScore = humanScore + 1 ;
-            console.log("Choix ordi" + " " + computerChoice +" "+  "Choix humain" + " " +humanChoice)
-            console.log("Computer : " + computerScore + " | " + "Human : " + humanScore)
-            return console.log("Paper beat rock") ;
+            result.innerText =("Choix ordi" + " " + computerChoice +" "+  "Choix humain" + " " +humanChoice)
+            result2.innerText = ("Computer : " + computerScore + " | " + "Human : " + humanScore)
+            return result3.innerText = ("Paper beat rock") ;
         } 
         if (humanChoice == "scissor" && computerChoice == "paper") {
             humanScore = humanScore + 1;
-            console.log("Choix ordi" + " " + computerChoice +" "+  "Choix humain" + " " +humanChoice)
-            console.log("Computer : " + computerScore + " | " + "Human : " + humanScore)
-            return console.log("scissor beat paper") ;
+            result.innerText =("Choix ordi" + " " + computerChoice +" "+  "Choix humain" + " " +humanChoice)
+            result2.innerText =("Computer : " + computerScore + " | " + "Human : " + humanScore)
+            return result3.innerText = ("scissor beat paper") ;
             
         }
         if (humanChoice === computerChoice) {
-            console.log("Choix ordi" + " " + computerChoice +" "+  "Choix humain" + " " +humanChoice)
-            console.log("Computer : " + computerScore + " | " + "Human : " + humanScore)
-            return console.log("That's a draw") ;
+            result.innerText =("Choix ordi" + " " + computerChoice +" "+  "Choix humain" + " " +humanChoice)
+            result2.innerText = ("Computer : " + computerScore + " | " + "Human : " + humanScore)
+            return result3.innerText = ("That's a draw") ;
             
         }
         else {
             computerScore = computerScore + 1;
-            console.log("Choix ordi" + " " + computerChoice + " "+ "Choix humain" + " " +humanChoice)
-            console.log("Computer : " + computerScore + " | " + "Human : " + humanScore)
-            console.log('computer wins')
+            result.innerText = ("Choix ordi" + " " + computerChoice + " "+ "Choix humain" + " " +humanChoice)
+            result2.innerText = ("Computer : " + computerScore + " | " + "Human : " + humanScore)
+           result3.innerText = ('computer wins')
         }      
     
 };
@@ -98,14 +105,14 @@ function playRound(humanChoice, computerChoice){
 
 
 
-// function playGame(roundNum){
+ function playGame(roundNum){
     
-//     for (let round = 0; round < roundNum; round++) {
-//         const humanSelection= getHumanChoice();
-//         const computerSelection = getComputerChoice(); 
-//         playRound(humanSelection, computerSelection); 
-//         console.log(`'Vous êtes au ${round}`)
-//     }; 
-// }
+     for (let round = 0; round < roundNum; round++) {
+         const humanSelection= getHumanChoice();
+         const computerSelection = getComputerChoice(); 
+         playRound(humanSelection, computerSelection); 
+         console.log(`'Vous êtes au ${round}`)
+     }; 
+ }
 
-// playGame(5);
+ playGame(5);
