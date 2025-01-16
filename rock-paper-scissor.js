@@ -60,14 +60,32 @@ function playRound(humanChoice, computerChoice){
     
 };
 
-function playGame(roundNum){
-    
-    for (let round = 0; round < roundNum; round++) {
-        const humanSelection= getHumanChoice();
-        const computerSelection = getComputerChoice(); 
-        playRound(humanSelection, computerSelection); 
-        console.log(`'Vous êtes au ${round}`)
-    }; 
-}
+const container = document.createElement('div');
+const body = document.querySelector('body');
 
-playGame(5);
+
+const scissorBtn = document.createElement('button');
+scissorBtn.textContent = 'Scissor';
+const papperBtn = document.createElement('button');
+papperBtn.textContent = 'Papper';
+const rockBtn = document.createElement('button');
+rockBtn.textContent = 'Rock';
+
+
+container.appendChild(scissorBtn);
+container.appendChild(papperBtn);
+container.appendChild(rockBtn);
+body.appendChild(container);
+
+
+// function playGame(roundNum){
+    
+//     for (let round = 0; round < roundNum; round++) {
+//         const humanSelection= getHumanChoice();
+//         const computerSelection = getComputerChoice(); 
+//         playRound(humanSelection, computerSelection); 
+//         console.log(`'Vous êtes au ${round}`)
+//     }; 
+// }
+
+// playGame(5);
