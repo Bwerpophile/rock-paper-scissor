@@ -3,9 +3,27 @@
 let humanScore = 0;
 let computerScore = 0;
 
+function checkGameStatus(){
+        if (humanScore === 5){
+          result3.innerText = ("Human Wins the game");
+          disableButtons();
+          
+        }
+        else if (computerScore === 5) {
+           result3.innerText = ("Computer Wins the game");
+           disableButtons();
+        }
+    }
+
+function disableButtons(){
+    scissorBtn.disabled = true;
+    papperBtn.disabled = true;
+    rockBtn.disabled = true;
+}
+
+
 function getComputerChoice(i) {
     i = Math.random();
-    console.log(i);
     if (i < 1/3)  {
         return computerChoice = "rock"
     }
@@ -16,12 +34,6 @@ function getComputerChoice(i) {
         return computerChoice = "scissor";
     };
 }
-
-// function getHumanChoice(){
-//     let humanChoice = prompt("Your choice");
-//     humanChoice = humanChoice.toLowerCase(); 
-//     return humanChoice; 
-// }
 
 const container = document.createElement('div');
 const result = document.createElement('p');
@@ -35,7 +47,10 @@ scissorBtn.textContent = 'Scissor';
 scissorBtn.addEventListener('click', () =>  {
       const humanPaper = "scissor"; 
       const computerChoice = getComputerChoice();
-      playRound(humanPaper, computerChoice);       
+      playRound(humanPaper, computerChoice);   
+      checkGameStatus();
+      
+      
 });
 
 
@@ -45,6 +60,7 @@ papperBtn.addEventListener('click', () =>  {
     const humanPaper = "paper"; 
     const computerChoice = getComputerChoice();
     playRound(humanPaper, computerChoice);       
+    checkGameStatus();
 });
 
 const rockBtn = document.createElement('button');
@@ -53,6 +69,7 @@ rockBtn.addEventListener('click', () =>  {
     const humanPaper = "rock"; 
     const computerChoice = getComputerChoice();
     playRound(humanPaper, computerChoice);
+    checkGameStatus();
 
 });
 
@@ -97,22 +114,7 @@ function playRound(humanChoice, computerChoice){
             computerScore = computerScore + 1;
             result.innerText = ("Choix ordi" + " " + computerChoice + " "+ "Choix humain" + " " +humanChoice)
             result2.innerText = ("Computer : " + computerScore + " | " + "Human : " + humanScore)
-           result3.innerText = ('computer wins')
+            result3.innerText = ('computer wins')
         }      
     
 };
-
-
-
-
- function playGame(roundNum){
-    
-     for (let round = 0; round < roundNum; round++) {
-         const humanSelection= getHumanChoice();
-         const computerSelection = getComputerChoice(); 
-         playRound(humanSelection, computerSelection); 
-         console.log(`'Vous êtes au ${round}`)
-     }; 
- }
-
- playGame(5);
