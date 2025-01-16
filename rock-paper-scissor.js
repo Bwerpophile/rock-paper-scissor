@@ -17,11 +17,46 @@ function getComputerChoice(i) {
     };
 }
 
-function getHumanChoice(){
-    let humanChoice = prompt("Your choice");
-    humanChoice = humanChoice.toLowerCase(); 
-    return humanChoice; 
-}
+// function getHumanChoice(){
+//     let humanChoice = prompt("Your choice");
+//     humanChoice = humanChoice.toLowerCase(); 
+//     return humanChoice; 
+// }
+
+const container = document.createElement('div');
+const body = document.querySelector('body');
+
+
+const scissorBtn = document.createElement('button');
+scissorBtn.textContent = 'Scissor';
+scissorBtn.addEventListener('click', () =>  {
+      const humanPaper = "scissor"; 
+      const computerChoice = getComputerChoice();
+      playRound(humanPaper, computerChoice);       
+});
+
+
+const papperBtn = document.createElement('button');
+papperBtn.textContent = 'Papper';
+papperBtn.addEventListener('click', () =>  {
+    const humanPaper = "paper"; 
+    const computerChoice = getComputerChoice();
+    playRound(humanPaper, computerChoice);       
+});
+
+const rockBtn = document.createElement('button');
+rockBtn.textContent = 'Rock';
+rockBtn.addEventListener('click', () =>  {
+    const humanPaper = "rock"; 
+    const computerChoice = getComputerChoice();
+    playRound(humanPaper, computerChoice);       
+});
+
+
+container.appendChild(scissorBtn);
+container.appendChild(papperBtn);
+container.appendChild(rockBtn);
+body.appendChild(container);
 
 function playRound(humanChoice, computerChoice){
     
@@ -60,22 +95,7 @@ function playRound(humanChoice, computerChoice){
     
 };
 
-const container = document.createElement('div');
-const body = document.querySelector('body');
 
-
-const scissorBtn = document.createElement('button');
-scissorBtn.textContent = 'Scissor';
-const papperBtn = document.createElement('button');
-papperBtn.textContent = 'Papper';
-const rockBtn = document.createElement('button');
-rockBtn.textContent = 'Rock';
-
-
-container.appendChild(scissorBtn);
-container.appendChild(papperBtn);
-container.appendChild(rockBtn);
-body.appendChild(container);
 
 
 // function playGame(roundNum){
